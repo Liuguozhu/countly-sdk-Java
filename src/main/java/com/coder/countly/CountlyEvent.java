@@ -21,6 +21,7 @@ public class CountlyEvent extends CountlyBase {
         String key;//自定义事件key
         int count;//自定义事件计数A，
         float sum;//自定义事件计数B，
+        long timestamp;//用于记录过去数据的 10 位 UTC 时戳。
         Map<String, String> segmentation;//自定义事件子属性
 
         public Event(String key, int count) {
@@ -78,29 +79,39 @@ public class CountlyEvent extends CountlyBase {
             this.segmentation = segmentation;
         }
 
+        public long getTimestamp() {
+            return timestamp;
+        }
+
+        public void setTimestamp(long timestamp) {
+            this.timestamp = timestamp;
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
             Event event = (Event) o;
-            return Objects.equals(key, event.key) &&
-                    Objects.equals(count, event.count) &&
-                    Objects.equals(sum, event.sum) &&
+            return count == event.count &&
+                    Float.compare(event.sum, sum) == 0 &&
+                    timestamp == event.timestamp &&
+                    Objects.equals(key, event.key) &&
                     Objects.equals(segmentation, event.segmentation);
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(key, count, sum, segmentation);
+            return Objects.hash(key, count, sum, timestamp, segmentation);
         }
 
         @Override
         public String toString() {
             return "Event{" +
                     "key='" + key + '\'' +
-                    ", count='" + count + '\'' +
-                    ", sum='" + sum + '\'' +
-                    ", segmentation='" + segmentation + '\'' +
+                    ", count=" + count +
+                    ", sum=" + sum +
+                    ", timestamp=" + timestamp +
+                    ", segmentation=" + segmentation +
                     '}';
         }
     }
