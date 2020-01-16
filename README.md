@@ -13,9 +13,9 @@
 - 部署方法，请自行百度谷歌。
 - 部署建议：用一台全新的服务器，没有nginx、node、mongodb等服务，并设置好代理，执行 ` wget -qO- http://c.ly/install | bash `
 - 自定义安装参考：[安装Countly Web Server过程记录](https://www.cnblogs.com/lulee007/p/4570325.html)
-- [Countly官方简介](https://resources.count.ly/v2.0/docs/users-guide)
-- [安装常见问题](https://resources.count.ly/v2.0/docs/installation-faq)
-- [官方API](https://www.stylefeng.cn/gunsVIP)
+- [Countly官方地址](https://count.ly/)
+- [Countly Help Center](https://support.count.ly/hc/en-us)
+- [官方API](https://api.count.ly/reference)
 
 ### 手动打包
 
