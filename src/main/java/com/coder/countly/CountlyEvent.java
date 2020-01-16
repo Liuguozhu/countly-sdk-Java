@@ -228,5 +228,7 @@ public class CountlyEvent extends CountlyBase {
         param.put(param_events, this.events);
     }
 
-
+    public CountlyEvent() {
+        instance();
+    }
 }

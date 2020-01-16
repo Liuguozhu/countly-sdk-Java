@@ -17,16 +17,23 @@ public class AbstractCountlyTemplate extends IAbstractCountlyTemplate {
 
     private static AbstractCountlyTemplate template = new AbstractCountlyTemplate();
 
-    public static IAbstractCountlyTemplate getInstance(String url, String appKey, String deviceId) {
+    static IAbstractCountlyTemplate getInstance(String url, String appKey, String deviceId) {
         if (config == null || !config.getDeviceId().equals(deviceId))
             config = new CountlyConfig(url, appKey, deviceId);
 
         return template;
     }
 
+    static IAbstractCountlyTemplate getInstance(String url, String apiKey) {
+        if (config == null || !config.getApiKey().equals(apiKey))
+            config = new CountlyConfig(url, apiKey);
+
+        return template;
+    }
+
 
     @Override
-    public <T extends CountlyBase> boolean execute(T t) {
+    public <T extends CountlyBase> boolean executeBoolean(T t) {
         String requestString = config.getRequestString();
         String response = HttpRequestUtil.get(requestString, t.param);
         System.out.println(response);
@@ -35,6 +42,14 @@ public class AbstractCountlyTemplate extends IAbstractCountlyTemplate {
             return "Success".equals(result.getResult());
         }
         return false;
+    }
+
+    @Override
+    public <T extends CountlyBase> String executeString(T t) {
+        String requestString = config.getRequestString();
+        String response = HttpRequestUtil.get(requestString, t.param);
+        System.out.println(response);
+        return response;
     }
 
 

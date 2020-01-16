@@ -9,6 +9,10 @@ package com.coder.countly;
  */
 public interface IKey {
     /**
+     * api_key，countly请求基础参数，API秘钥，创建管理员的时候，有个API秘钥，不同的管理员API秘钥不同
+     */
+    final static String param_api_key = "api_key";
+    /**
      * app_key，countly请求基础参数，用户区分统计的应用
      */
     final static String param_app_key = "app_key";
@@ -66,9 +70,17 @@ public interface IKey {
     final static String param_old_device_id = "old_device_id";
 
     /**
-     * app_key，countly请求基础参数，自定义事件
+     * countly请求参数，自定义事件
      */
     final static String param_events = "events";
+    /**
+     * countly创建应用参数，应用信息 {"name":"Test App","type":"mobile"}
+     */
+    final static String param_args = "args";
+    /**
+     * countly创建应用参数，（可选）用于JSONP输出的回调函数的名称
+     */
+    final static String param_callback = "callback";
 
     final static String events_key = "key";
     final static String events_count = "count";

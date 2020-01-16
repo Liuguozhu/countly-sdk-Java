@@ -15,11 +15,18 @@ public abstract class IAbstractCountlyTemplate {
         return AbstractCountlyTemplate.getInstance(url, appKey, deviceId);
     }
 
+    //实例化操作对象
+    static public IAbstractCountlyTemplate get(String url, String apiKey) {
+        return AbstractCountlyTemplate.getInstance(url, apiKey);
+    }
+
     public static CountlyConfig getConfig() {
         return config;
     }
 
-    abstract public <T extends CountlyBase> boolean execute(T t);
+    abstract public <T extends CountlyBase> String executeString(T t);
+
+    abstract public <T extends CountlyBase> boolean executeBoolean(T t);
 
     abstract public <T extends CountlyBase> boolean login(T t);
 
