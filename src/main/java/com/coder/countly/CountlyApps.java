@@ -13,7 +13,6 @@ public class CountlyApps extends CountlyBase {
     private String args;//JSON object as string with app data.
     private String callback;//(optional) name of callback function for JSONP output
 
-
     /*
  args 示例：{"name":"Test App","type":"mobile"}
 

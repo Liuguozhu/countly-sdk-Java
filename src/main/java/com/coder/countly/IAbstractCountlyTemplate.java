@@ -28,9 +28,5 @@ public abstract class IAbstractCountlyTemplate {
 
     abstract public <T extends CountlyBase> boolean executeBoolean(T t);
 
-    abstract public <T extends CountlyBase> boolean login(T t);
-
-    abstract public <T extends CountlyBase> boolean event(T t);
-
 
 }

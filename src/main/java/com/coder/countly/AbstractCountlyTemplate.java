@@ -31,7 +31,6 @@ public class AbstractCountlyTemplate extends IAbstractCountlyTemplate {
         return template;
     }
 
-
     @Override
     public <T extends CountlyBase> boolean executeBoolean(T t) {
         String requestString = config.getRequestString();
@@ -52,28 +51,4 @@ public class AbstractCountlyTemplate extends IAbstractCountlyTemplate {
         return response;
     }
 
-
-    @Override
-    public <T extends CountlyBase> boolean login(T t) {
-        String requestString = config.getRequestString();
-        String response = HttpRequestUtil.get(requestString, t.param);
-        System.out.println(response);
-        if (!"".equals(response)) {
-            Result result = JSONObject.parseObject(response, Result.class);
-            return "Success".equals(result.getResult());
-        }
-        return false;
-    }
-
-    @Override
-    public <T extends CountlyBase> boolean event(T t) {
-        String requestString = config.getRequestString();
-        String response = HttpRequestUtil.get(requestString, t.param);
-        System.out.println(response);
-        if (!"".equals(response)) {
-            Result result = JSONObject.parseObject(response, Result.class);
-            return "Success".equals(result.getResult());
-        }
-        return false;
-    }
 }
