@@ -11,9 +11,9 @@ import java.util.*;
  * @date 2019/12/31 10:38:19
  */
 public class Test {
-    private static String url = "http://countly.ophyer.cn/i";//请改为自己部署的countly地址
-    private static String apiKey = "f595d9263bce84782686732e06a35738";//请改为自己在countly的api秘钥
-    private static String appKey = "8770147973f606c337b4a8cc1d157690953e1315";//请改为自己在countly创建的应用appKey
+    private static String url = "http://192.168.0.100/i";//请改为自己部署的countly地址
+    private static String apiKey = "xxxxxxxxx";//请改为自己在countly的api秘钥
+    private static String appKey = "xxxxxxxxx";//请改为自己在countly创建的应用appKey
     private static IAbstractCountlyTemplate template;//countly操作模板
 
     public static void main(String[] args) {
