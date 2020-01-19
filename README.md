@@ -27,6 +27,7 @@ mvn clean assembly:assembly
 打包完成后，会在项目根目录下的 target 目录里生成一个`*.tar.gz`文件，~~解压运行`sh start.sh`即可启动服务~~
 
 - 打包到本地maven仓库
+
 Although you could copy countly-sdk-Java jars, we generally recommend that you use a build tool that supports dependency management (such as Maven or Gradle).
 
 ```bash
