@@ -11,8 +11,8 @@ public abstract class IAbstractCountlyTemplate {
     static CountlyConfig config;
 
     //实例化操作对象
-    static public IAbstractCountlyTemplate get(String url, String appKey, String deviceId) {
-        return AbstractCountlyTemplate.getInstance(url, appKey, deviceId);
+    static public IAbstractCountlyTemplate get(String url, String apiKey, String appKey) {
+        return AbstractCountlyTemplate.getInstance(url, apiKey, appKey);
     }
 
     //实例化操作对象

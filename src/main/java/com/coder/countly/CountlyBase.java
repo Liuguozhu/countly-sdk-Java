@@ -11,16 +11,18 @@ import java.util.Objects;
  * @description countly CountlyBase
  * @date 2019/12/31 10:09:58
  */
-public abstract class CountlyBase implements IKey{
-
+public abstract class CountlyBase implements IKey {
+    private String deviceId;//用户|设备标识
     protected Map<String, String> param = new HashMap<>();
 
     CountlyBase() {
     }
 
-    public void instance() {
+    public void instance(String deviceId) {
         //清空请求参数
         param.clear();
+        this.deviceId = deviceId;
+        param.put(param_device_id, deviceId);
     }
 
 
@@ -32,13 +34,16 @@ public abstract class CountlyBase implements IKey{
         param.put(key, value);
     }
 
+    public String getDeviceId() {
+        return deviceId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountlyBase that = (CountlyBase) o;
-        return
-                Objects.equals(param, that.param);
+        return Objects.equals(param, that.param);
     }
 
     @Override

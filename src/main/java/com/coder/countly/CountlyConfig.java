@@ -13,7 +13,6 @@ public class CountlyConfig implements IKey {
     private String url;
     private String apiKey;
     private String appKey;
-    private String deviceId;//用户|设备标识
     private String sdkVersion;//可选参数
 
     private static StringBuilder requestBuild = new StringBuilder();
@@ -32,15 +31,28 @@ public class CountlyConfig implements IKey {
         requestBuild.append(question_mark).append(param_api_key).append(equals_sign).append(this.getApiKey());
     }
 
-    CountlyConfig(String url, String appKey, String deviceId) {
+    //    CountlyConfig(String url, String appKey, String deviceId) {
+//        this.url = url;
+//        this.appKey = appKey;
+////        this.deviceId = deviceId;
+//        //清空 请求字符串和 请求参数
+//        requestBuild.delete(0, requestBuild.length());
+//        requestBuild.append(this.getUrl());
+//        requestBuild.append(question_mark).append(param_app_key).append(equals_sign).append(this.getAppKey());
+////        requestBuild.append(and_sign).append(param_device_id).append(equals_sign).append(this.getDeviceId());
+//    }
+    CountlyConfig(String url, String apiKey, String appKey) {
         this.url = url;
+        this.apiKey = apiKey;
         this.appKey = appKey;
-        this.deviceId = deviceId;
         //清空 请求字符串和 请求参数
         requestBuild.delete(0, requestBuild.length());
         requestBuild.append(this.getUrl());
-        requestBuild.append(question_mark).append(param_app_key).append(equals_sign).append(this.getAppKey());
-        requestBuild.append(and_sign).append(param_device_id).append(equals_sign).append(this.getDeviceId());
+        requestBuild.append(question_mark);
+        requestBuild.append(and_sign);
+        requestBuild.append(param_api_key).append(equals_sign).append(this.getApiKey());
+        requestBuild.append(and_sign);
+        requestBuild.append(param_app_key).append(equals_sign).append(this.getAppKey());
     }
 
     String getRequestString() {
@@ -48,14 +60,13 @@ public class CountlyConfig implements IKey {
             requestBuild.append(this.getUrl());
             requestBuild.append(question_mark).append(param_app_key).append(equals_sign).append(this.getAppKey());
             requestBuild.append(and_sign).append(param_api_key).append(equals_sign).append(this.getApiKey());
-            requestBuild.append(and_sign).append(param_device_id).append(equals_sign).append(this.getDeviceId());
         }
         return requestBuild.toString();
     }
 
-    String getDeviceId() {
-        return deviceId;
-    }
+//    String getDeviceId() {
+//        return deviceId;
+//    }
 
     public String getUrl() {
         return url;

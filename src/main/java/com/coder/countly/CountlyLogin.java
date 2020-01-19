@@ -59,8 +59,8 @@ public class CountlyLogin extends CountlyBase {
     private String location;//（可选）用户 lat，lng
     private String old_device_id;//（可选）更改设备 ID 时提供，便于服务器合并数据
 
-    public CountlyLogin() {
-        instance();
+    public CountlyLogin(String deviceId) {
+        instance(deviceId);
     }
 
 

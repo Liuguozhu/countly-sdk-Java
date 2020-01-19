@@ -18,20 +18,20 @@ public class Test {
 
     public static void main(String[] args) {
 
-        String deviceId = "张三"; //用户设备标识，不同的deviceId就是不同的登录用户
-
-//        template = IAbstractCountlyTemplate.get(url, appKey, deviceId);//初始化模板
-
+//        String deviceId = "张三"; //用户设备标识，不同的deviceId就是不同的登录用户
+//
+//        template = IAbstractCountlyTemplate.get(url, apiKey, appKey);//初始化模板
+//
 //        //提交用户每日登录统计，同一个deviceId如果提交多次登录请求，每日只统计为一人次
-//        CountlyLogin countly = new CountlyLogin();
-//        countly.setIp_address("127.0.0.1");
+//        CountlyLogin countly = new CountlyLogin(deviceId);
+//        countly.setIp_address("49.7.42.120");
 //        countly.setBegin_session(1);
 //        countly.setSession_duration(30);
 //        countly.setCountry_code("China");
-//        template.execute(countly);
-
+//        template.executeBoolean(countly);
+////
 //        //自定义事件，可一次性提交多个事件的统计
-//        CountlyEvent countlyEvent = new CountlyEvent();
+//        CountlyEvent countlyEvent = new CountlyEvent(deviceId);
 //        List<CountlyEvent.Event> events = new ArrayList<>();
 ////        //自定义事件1
 ////        events.add(new CountlyEvent.Event("sleep", 1));
@@ -45,15 +45,15 @@ public class Test {
 //        CountlyEvent.Event event = new CountlyEvent.Event("eat", 1, segmentation);
 //        event.setTimestamp(times);
 //        events.add(event);
-////        //自定义事件3
-////        events.add(new CountlyEvent.Event("pay", 1, 10.00f));
+//        //自定义事件3
+//        events.add(new CountlyEvent.Event("pay", 1, 10.00f));
 //
 //        countlyEvent.setEvents(events);
-//        template.execute(countlyEvent);
+//        template.executeBoolean(countlyEvent);
 
 
         template = IAbstractCountlyTemplate.get(url + "/apps/create", apiKey);
-        CountlyApps countlyApps = new CountlyApps();
+        CountlyApps countlyApps = new CountlyApps(null);
         String appName = "新建应用";
         CountlyApps.Args args1 = new CountlyApps.Args(appName);
         args1.setType("web");

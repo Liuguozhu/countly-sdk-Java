@@ -16,10 +16,17 @@ import java.util.Map;
 public class AbstractCountlyTemplate extends IAbstractCountlyTemplate {
 
     private static AbstractCountlyTemplate template = new AbstractCountlyTemplate();
+//
+//    static IAbstractCountlyTemplate getInstance(String url, String appKey, String deviceId) {
+//        if (config == null || !config.getDeviceId().equals(deviceId))
+//            config = new CountlyConfig(url, appKey, deviceId);
+//
+//        return template;
+//    }
 
-    static IAbstractCountlyTemplate getInstance(String url, String appKey, String deviceId) {
-        if (config == null || !config.getDeviceId().equals(deviceId))
-            config = new CountlyConfig(url, appKey, deviceId);
+    static IAbstractCountlyTemplate getInstance(String url, String apiKey, String appKey) {
+        if (config == null)
+            config = new CountlyConfig(url, apiKey, appKey);
 
         return template;
     }

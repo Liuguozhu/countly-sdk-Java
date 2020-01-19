@@ -100,7 +100,7 @@ public class CountlyApps extends CountlyBase {
         param.put(param_callback, this.args);
     }
 
-    public CountlyApps() {
-        instance();
+    public CountlyApps(String deviceId) {
+        instance(deviceId);
     }
 }
